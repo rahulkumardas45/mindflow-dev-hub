@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Menu, X, Terminal } from "lucide-react";
 
 const navItems = [
@@ -22,7 +22,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         <a href="#" className="flex items-center gap-2 text-primary font-bold text-lg">
           <Terminal className="w-5 h-5" />
-          <span className="font-mono">alex.dev</span>
+          <span className="font-mono">rahul.dev</span>
         </a>
 
         <div className="hidden md:flex items-center gap-8">
@@ -48,29 +48,26 @@ const Navbar = () => {
         </button>
       </div>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="md:hidden glass border-t border-border/20 overflow-hidden"
-          >
-            <div className="flex flex-col px-6 py-4 gap-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {open && (
+        <motion.div
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: "auto", opacity: 1 }}
+          className="md:hidden glass border-t border-border/20 overflow-hidden"
+        >
+          <div className="flex flex-col px-6 py-4 gap-4">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </motion.div>
+      )}
     </motion.nav>
   );
 };

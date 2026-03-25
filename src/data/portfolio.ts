@@ -1,17 +1,19 @@
 export const profile = {
-  name: "Alex Chen",
-  role: "Full Stack AI Engineer",
+  name: "Rahul Kumar",
+  role: "Full Stack Developer",
   taglines: [
-    "Building intelligent systems that scale.",
-    "Crafting AI-powered experiences.",
-    "From models to production, end to end.",
-    "Turning data into decisions.",
+    "Building scalable full-stack applications.",
+    "Crafting seamless user experiences.",
+    "From backend APIs to pixel-perfect UIs.",
+    "Solving problems, one commit at a time.",
   ],
-  bio: "I design and build production-grade AI systems, from fine-tuning LLMs to deploying scalable microservices. Passionate about the intersection of software engineering and machine learning.",
-  email: "alex@example.com",
+  bio: "B.Tech CSE student at IIIT Bhagalpur, passionate about full-stack development, scalable systems, and building production-grade web applications. 250+ LeetCode problems solved.",
+  email: "rahulku3223@gmail.com",
+  altEmail: "rahul.230101096@iiitbh.ac.in",
+  phone: "+91-8084601841",
   github: "https://github.com",
   linkedin: "https://linkedin.com",
-  resumeUrl: "#",
+  resumeUrl: "/resume.pdf",
 };
 
 export interface Project {
@@ -27,39 +29,30 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "1",
-    title: "AI Document Analyzer",
-    description: "RAG-powered document Q&A system with vector search, supporting PDF, DOCX, and markdown ingestion with sub-second query responses.",
-    techStack: ["Python", "LangChain", "Pinecone", "React", "FastAPI"],
+    title: "Edemy – Online LMS",
+    description: "Full-stack Learning Management System with RBAC authentication and Stripe payments. Built scalable REST APIs and optimized MongoDB schema for efficient course and user data retrieval.",
+    techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "Clerk", "Stripe"],
     liveUrl: "#",
     githubUrl: "#",
     gradient: "from-primary/20 to-accent/20",
   },
   {
     id: "2",
-    title: "Real-Time Trading Bot",
-    description: "ML-driven trading system processing 10K+ events/sec with live market data, featuring anomaly detection and automated execution.",
-    techStack: ["Python", "TensorFlow", "Redis", "Kafka", "PostgreSQL"],
+    title: "AI-Powered Blog App",
+    description: "MERN blog platform with AI content assistance and JWT authentication. Features role-based access, full CRUD APIs, and a responsive Redux-based UI.",
+    techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "Redux", "JWT"],
     liveUrl: "#",
     githubUrl: "#",
     gradient: "from-accent/20 to-primary/20",
   },
   {
     id: "3",
-    title: "Smart Code Reviewer",
-    description: "AI-powered code review tool that analyzes PRs, suggests improvements, detects vulnerabilities, and generates documentation automatically.",
-    techStack: ["TypeScript", "OpenAI", "Next.js", "GitHub API", "Docker"],
+    title: "Real-Time Chat App",
+    description: "Low-latency real-time chat application using WebSockets. Supports secure one-to-one and group chat with persistent storage, optimized for concurrent active users.",
+    techStack: ["React.js", "Node.js", "Socket.io", "MongoDB", "JWT"],
     liveUrl: "#",
     githubUrl: "#",
     gradient: "from-primary/20 to-emerald-500/20",
-  },
-  {
-    id: "4",
-    title: "Voice-First AI Assistant",
-    description: "Multimodal assistant with real-time speech recognition, natural language understanding, and context-aware responses across 12 languages.",
-    techStack: ["Python", "Whisper", "GPT-4", "WebSocket", "React Native"],
-    liveUrl: "#",
-    githubUrl: "#",
-    gradient: "from-rose-500/20 to-accent/20",
   },
 ];
 
@@ -79,49 +72,67 @@ export const skillCategories: SkillCategory[] = [
     category: "Frontend",
     icon: "monitor",
     skills: [
-      { name: "React / Next.js", level: 95 },
-      { name: "TypeScript", level: 92 },
-      { name: "Tailwind CSS", level: 90 },
-      { name: "Framer Motion", level: 85 },
+      { name: "React.js / Redux", level: 90 },
+      { name: "HTML / CSS", level: 92 },
+      { name: "JavaScript", level: 88 },
+      { name: "Responsive Design", level: 85 },
     ],
   },
   {
     category: "Backend",
     icon: "server",
     skills: [
-      { name: "Node.js / Express", level: 93 },
-      { name: "Python / FastAPI", level: 90 },
-      { name: "PostgreSQL", level: 88 },
-      { name: "Redis", level: 82 },
+      { name: "Node.js / Express.js", level: 90 },
+      { name: "RESTful APIs", level: 88 },
+      { name: "Socket.io", level: 82 },
+      { name: "JWT Authentication", level: 85 },
     ],
   },
   {
-    category: "AI / ML",
+    category: "Languages & DB",
     icon: "brain",
     skills: [
-      { name: "LLM Fine-Tuning", level: 90 },
-      { name: "RAG Systems", level: 92 },
-      { name: "TensorFlow / PyTorch", level: 85 },
-      { name: "LangChain", level: 88 },
+      { name: "C / C++", level: 90 },
+      { name: "Python / SQL", level: 85 },
+      { name: "MongoDB", level: 88 },
+      { name: "MySQL", level: 80 },
     ],
   },
   {
-    category: "DevOps",
+    category: "CS & Tools",
     icon: "cloud",
     skills: [
-      { name: "Docker / K8s", level: 87 },
-      { name: "AWS / GCP", level: 85 },
-      { name: "CI/CD Pipelines", level: 90 },
-      { name: "Terraform", level: 78 },
+      { name: "DSA", level: 88 },
+      { name: "Git / GitHub", level: 90 },
+      { name: "Stripe / Clerk", level: 80 },
+      { name: "OS / DBMS / CN", level: 82 },
     ],
   },
 ];
 
+export const achievements = [
+  { platform: "LeetCode", detail: "250+ problems solved, highest rating 1516", link: "#" },
+  { platform: "CodeChef", detail: "Highest rating 1400, multiple rated contests", link: "#" },
+  { platform: "GeeksforGeeks", detail: "50+ DSA problems solved", link: "#" },
+];
+
+export const certifications = [
+  "Cyber Security Certification",
+  "Google Generative AI Introduction",
+  "AI Agent Development Bootcamp (5 Days)",
+];
+
+export const education = [
+  { institution: "IIIT Bhagalpur", degree: "B.Tech, CSE", year: "2023 – 2027", score: "CGPA: 6.81" },
+  { institution: "Sri Radha Krishna Goenka College", degree: "12th (BSEB)", year: "2020 – 2022", score: "82.8%" },
+  { institution: "Hit Narayan High School", degree: "10th (BSEB)", year: "2020", score: "82.2%" },
+];
+
 export const architectureComponents = [
-  { id: "client", label: "Client App", x: 10, y: 40, description: "React SPA with SSR. Handles routing, state, and renders the UI." },
-  { id: "api", label: "API Gateway", x: 35, y: 40, description: "Express/FastAPI gateway. Rate limiting, auth, request validation." },
-  { id: "llm", label: "LLM Service", x: 60, y: 20, description: "Orchestrates LLM calls with LangChain. Manages prompts, chains, and memory." },
-  { id: "vector", label: "Vector DB", x: 85, y: 20, description: "Pinecone/FAISS for semantic search. Stores embeddings for RAG retrieval." },
-  { id: "db", label: "PostgreSQL", x: 60, y: 60, description: "Primary data store. Projects, users, chat history, analytics." },
-  { id: "cache", label: "Redis Cache", x: 85, y: 60, description: "Caches frequent queries, session data, and rate limit counters." },
+  { id: "client", label: "React Frontend", x: 10, y: 40, description: "React.js SPA with Redux state management. Handles routing, UI rendering, and API calls." },
+  { id: "api", label: "Express API", x: 35, y: 40, description: "Node.js + Express.js REST API. JWT auth, request validation, and route handling." },
+  { id: "realtime", label: "Socket.io", x: 60, y: 20, description: "WebSocket layer for real-time features. Powers live chat and notifications." },
+  { id: "auth", label: "Auth (JWT/Clerk)", x: 85, y: 20, description: "Authentication via JWT tokens or Clerk. Supports RBAC and secure sessions." },
+  { id: "db", label: "MongoDB", x: 60, y: 60, description: "Primary NoSQL database. Stores users, courses, messages, and blog posts." },
+  { id: "payments", label: "Stripe", x: 85, y: 60, description: "Payment processing for course purchases. Secure checkout integration." },
 ];

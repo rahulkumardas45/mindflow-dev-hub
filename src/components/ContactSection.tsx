@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Download, Github, Linkedin, Mail } from "lucide-react";
+import { Send, Download, Github, Linkedin, Mail, Phone } from "lucide-react";
 import { profile } from "@/data/portfolio";
 
 const ContactSection = () => {
@@ -61,6 +61,7 @@ const ContactSection = () => {
               </button>
               <a
                 href={profile.resumeUrl}
+                download
                 className="px-6 py-3 rounded-xl glass text-foreground font-semibold text-sm flex items-center gap-2 hover:border-primary/40 transition-colors"
               >
                 Download Resume <Download className="w-4 h-4" />
@@ -77,6 +78,9 @@ const ContactSection = () => {
             </a>
             <a href={`mailto:${profile.email}`} className="text-muted-foreground hover:text-primary transition-colors">
               <Mail className="w-5 h-5" />
+            </a>
+            <a href={`tel:${profile.phone}`} className="text-muted-foreground hover:text-primary transition-colors">
+              <Phone className="w-5 h-5" />
             </a>
           </div>
         </motion.div>
