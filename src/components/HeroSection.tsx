@@ -83,19 +83,13 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="max-w-xl mx-auto mb-10"
         >
-          <div className="glass glow-box rounded-2xl p-1">
-            <div className="flex items-center gap-3 px-5 py-4">
+          <div
+            className="glass glow-box rounded-2xl p-1 cursor-pointer"
+            onClick={() => document.getElementById("chat-toggle")?.click()}
+          >
+            <div className="flex items-center gap-3 px-5 py-4 pointer-events-none">
               <Search className="w-5 h-5 text-muted-foreground flex-shrink-0" />
-              <input
-                type="text"
-                placeholder="Ask anything about me..."
-                className="flex-1 bg-transparent text-foreground placeholder:text-muted-foreground outline-none text-sm"
-                readOnly
-                onFocus={(e) => {
-                  e.target.blur();
-                  document.getElementById("chat-toggle")?.click();
-                }}
-              />
+              <span className="flex-1 text-muted-foreground text-sm text-left">Ask anything about me...</span>
               <span className="text-xs text-muted-foreground font-mono px-2 py-1 rounded bg-secondary">AI</span>
             </div>
           </div>
