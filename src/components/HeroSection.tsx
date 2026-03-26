@@ -83,16 +83,17 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="max-w-xl mx-auto mb-10"
         >
-          <div
-            className="glass glow-box rounded-2xl p-1 cursor-pointer"
+          <button
+            type="button"
+            className="w-full glass glow-box rounded-2xl p-1 cursor-pointer text-left"
             onClick={() => document.getElementById("chat-toggle")?.click()}
           >
-            <div className="flex items-center gap-3 px-5 py-4 pointer-events-none">
+            <div className="flex items-center gap-3 px-5 py-4">
               <Search className="w-5 h-5 text-muted-foreground flex-shrink-0" />
               <span className="flex-1 text-muted-foreground text-sm text-left">Ask anything about me...</span>
               <span className="text-xs text-muted-foreground font-mono px-2 py-1 rounded bg-secondary">AI</span>
             </div>
-          </div>
+          </button>
         </motion.div>
 
         {/* CTAs */}
