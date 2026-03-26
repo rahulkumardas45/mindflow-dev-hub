@@ -1,17 +1,60 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Download, Github, Linkedin, Mail, Phone } from "lucide-react";
+import { Send, Download, Github, Linkedin, Mail, Phone, Loader2 } from "lucide-react";
 import { profile } from "@/data/portfolio";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
-    setTimeout(() => setSent(false), 3000);
-    setForm({ name: "", email: "", message: "" });
+    setSending(true);
+
+    try {
+      const id = crypto.randomUUID();
+
+      const { error } = await supabase.from("contact_submissions").insert({
+        id,
+        name: form.name.trim(),
+        email: form.email.trim(),
+        message: form.message.trim(),
+      });
+
+      if (error) throw error;
+
+      // Try sending notification email via edge function
+      try {
+        await supabase.functions.invoke("send-contact-email", {
+          body: {
+            name: form.name.trim(),
+            email: form.email.trim(),
+            message: form.message.trim(),
+          },
+        });
+      } catch {
+        // Email sending is optional — submission is already saved
+        console.log("Email notification skipped (not configured yet)");
+      }
+
+      toast({
+        title: "Message sent! ✉️",
+        description: "Thanks for reaching out. I'll get back to you soon!",
+      });
+      setForm({ name: "", email: "", message: "" });
+    } catch (err) {
+      console.error("Submission error:", err);
+      toast({
+        title: "Something went wrong",
+        description: "Please try again or email me directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -55,9 +98,14 @@ const ContactSection = () => {
             <div className="flex flex-wrap items-center gap-4">
               <button
                 type="submit"
-                className="px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm flex items-center gap-2 hover:opacity-90 transition-opacity"
+                disabled={sending}
+                className="px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm flex items-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-60"
               >
-                {sent ? "Sent!" : "Send Message"} <Send className="w-4 h-4" />
+                {sending ? (
+                  <>Sending... <Loader2 className="w-4 h-4 animate-spin" /></>
+                ) : (
+                  <>Send Message <Send className="w-4 h-4" /></>
+                )}
               </button>
               <a
                 href={profile.resumeUrl}
